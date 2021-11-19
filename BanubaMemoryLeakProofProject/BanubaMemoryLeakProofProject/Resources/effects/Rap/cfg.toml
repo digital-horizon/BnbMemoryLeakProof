@@ -1,0 +1,163 @@
+warp_mesh = "BeautyFaceSP.bsm2"
+msaa = 1
+shadowmap_size = 512
+adjust_znear = 150
+draw_order = ['retouch', 'cap2', 'cut', 'facemat', 'glass1',  'shadow', 'cut_blur', 'CHAIN1', 'B_medal', 'MEDAL_GOLD']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="REDMASK_v3_256.png"
+lookupTexTeeth="TEETH_medium.png"
+tex_softLight="SOFT_princess_256.png"
+tex_normalMakeup="makeup.png"
+
+# PBR
+[materials.cap2]
+vs = "cap2.vert"
+fs = "cap2.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.cap2.samplers]
+tex_diffuse="cap_color.png"
+tex_normal="cap_normal.png"
+tex_metallic="cap_spec.png"
+tex_roughness="cap_roughnes.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+# Cut
+[materials.cut]
+vs = "cut.vert"
+fs = "cut.frag"
+blend = "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = false
+samplers = {}
+
+# Cut
+[materials.facemat]
+vs = "facemat.vert"
+fs = "facemat.frag"
+blend = "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = false
+samplers = {}
+
+# PBR
+[materials.CHAIN1]
+vs = "chain1.vert"
+fs = "chain1.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.CHAIN1.samplers]
+tex_diffuse="CHAIN1_Base_Color.png"
+tex_normal="no_Normal.png"
+tex_metallic="CHAIN1_Metallic.png"
+tex_roughness="CHAIN1_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+# PBR
+[materials.glass1]
+vs = "glass1.vert"
+fs = "glass1.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.glass1.samplers]
+tex_diffuse="glass1_Base_Color.png"
+tex_normal="no_Normal.png"
+tex_metallic="glass1_Metallic.png"
+tex_roughness="glass1_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+# PBR
+[materials.MEDAL_GOLD]
+vs = "medal_gold.vert"
+fs = "medal_gold.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.MEDAL_GOLD.samplers]
+tex_diffuse="MEDAL_GOLD_Base_Color.png"
+tex_normal="no_Normal.png"
+tex_metallic="MEDAL_GOLD_Metallic.png"
+tex_roughness="MEDAL_GOLD_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+# PBR
+[materials.shadow]
+vs = "shadow.vert"
+fs = "shadow.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.shadow.samplers]
+tex_diffuse="shadow.png"
+tex_normal="no_Normal.png"
+tex_metallic="no_Metallic.png"
+tex_roughness="no_Roughness.png"
+
+# PBR
+[materials.B_medal]
+vs = "b_medal.vert"
+fs = "b_medal.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.B_medal.samplers]
+tex_diffuse="B_medal_Base_Color.png"
+tex_normal="no_Normal.png"
+tex_metallic="B_medal_Metallic.png"
+tex_roughness="B_medal_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+[materials.cut_blur]
+vs = "vertex.vert"
+fs = "pbr.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply"
+backfaces = false
+colorwrite = false
+zwrite = false
+shadow = false
+[materials.cut_blur.samplers]
+tex_diffuse="cut_blur_Base_Color.png"
+tex_normal="cut_blur_Normal.png"
+tex_metallic="cut_blur_Metallic.png"
+tex_roughness="cut_blur_Roughness.png"

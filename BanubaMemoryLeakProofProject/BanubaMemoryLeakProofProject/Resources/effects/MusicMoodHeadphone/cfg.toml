@@ -1,0 +1,79 @@
+warp_mesh = "morph.bsm2"
+msaa = 1
+shadowmap_size = 512
+adjust_znear = 150
+draw_order = ['retouch', '!glfx_WARP_IMAGE', 'matte_mat', 'morph_mat', 'headphones_mat', 'particles', 'lava_mat']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="REDMASK_v3_256.png"
+lookupTexTeeth="teeth_middle.png"
+lookupTexEyes="eyes_middle.png"
+tex_softLight="soft_low_256.png"
+tex_normalMakeup="unisex_minimal_512.png"
+tex_highlight="eye_highlight.png"
+
+# PBR
+[materials.matte_mat]
+vs = "matte_mat.vert"
+fs = "matte_mat.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = true
+samplers = {}
+
+# PBR
+[materials.morph_mat]
+vs = "morph_mat.vert"
+fs = "morph_mat.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = true
+samplers = {}
+
+# PBR
+[materials.headphones_mat]
+vs = "headphones_mat.vert"
+fs = "video_a.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.headphones_mat.samplers]
+
+# PBR
+[materials.particles]
+vs = "headphones_mat.vert"
+fs = "video_a.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.particles.samplers]
+
+# PBR
+[materials.lava_mat]
+vs = "headphones_mat.vert"
+fs = "video_a.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.lava_mat.samplers]

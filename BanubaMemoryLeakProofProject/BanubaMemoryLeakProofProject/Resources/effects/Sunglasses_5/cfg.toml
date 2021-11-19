@@ -1,0 +1,64 @@
+warp_mesh = "face.bsm2"
+msaa = 8
+shadowmap_size = 512
+adjust_znear = 150
+draw_order = ['retouch', 'facemat', 'Glasses_mat', 'Glass_mat']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+tex_normalMakeup="Glasses_shadow.png"
+
+# Cut
+[materials.facemat]
+vs = "facemat.vert"
+fs = "facemat.frag"
+blend = "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = false
+samplers = {}
+
+# PBR
+[materials.Glasses_mat]
+vs = "glasses_mat.vert"
+fs = "glasses_mat.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+[materials.Glasses_mat.samplers]
+tex_diffuse="Glasses_mat_Base_Color.png"
+tex_metallic="Glasses_mat_Metallic.png"
+tex_roughness="Glasses_mat_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+# PBR
+[materials.Glass_mat]
+vs = "glass_mat.vert"
+fs = "glass_mat.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+[materials.Glass_mat.samplers]
+tex_diffuse="Glasses_mat_Base_Color.png"
+tex_metallic="Glasses_mat_Metallic.png"
+tex_roughness="Glasses_mat_Roughness.png"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"

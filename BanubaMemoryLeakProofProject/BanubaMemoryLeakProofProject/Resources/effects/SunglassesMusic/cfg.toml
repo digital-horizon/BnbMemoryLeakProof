@@ -1,0 +1,54 @@
+shadowmap_size = 512
+warp_mesh = "Beauty06.bsm2"
+
+draw_order = ["TriMat","retouch","Music_sunglasse","video_texture","!glfx_FACE_SHADOW"]
+
+[materials.TriMat]
+vs = "fstri.vert"
+fs = "greyscale.frag"
+blend = "off"
+backfaces = true
+shadow = false
+zwrite = false
+samplers = {}
+
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch_grayscale.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+samplers = { selection_tex="redmask_v3.png", lookupTexTeeth="teeth_highlighter5.png", lookupTexEyes="lut_80_percent.png" }
+
+[materials.Music_sunglasse]
+vs = "vertex.vert"
+fs = "pbr.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply"
+backfaces = true
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.Music_sunglasse.samplers]
+tex_diffuse="Music_sunglasse_Base_Color.ktx"
+tex_normal="Music_sunglasse_Normal.ktx"
+tex_mrao="Music_sunglasse_MRAO.ktx"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+
+[materials.video_texture]
+vs = "vertex.vert"
+fs = "pbr_video_a.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply"
+backfaces = true
+colorwrite = true
+zwrite = false
+shadow = true
+[materials.video_texture.samplers]
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"

@@ -1,0 +1,37 @@
+{
+  "name": "SpaceClub",
+  "recordDuration": 15,
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    },
+       "media": {
+      "type": "VIDEO",
+      "file": "FaceClub.mp4"
+  }
+},
+   "foreground": {
+    "type": "MEDIA",
+    "media": {
+      "type": "VIDEO",
+      "file": "Fg_screen.mp4",
+      "opacity": 0.4,
+      "videoSpeed": 1.0,
+      "blend": "OVERLAY",
+      "mode": "RGB"
+     }
+   },
+   "final" : {
+      "type" : "FILTER",
+      "filter" : {
+        "fragmentCode" : "finalColorFilter.fsh",
+        "textures" : [{
+          "file" : "LUT_bubblegum.png",
+          "sampler" : "lookupTexture",
+          "magFilter" : "LINEAR",
+          "minFilter" : "LINEAR"
+        }]
+      }
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Rap",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    }
+  },
+  "recordDuration": 15,
+  "sounds" : [
+                 { "trackName" : "Tra2.mp3" }
+                 ],
+  "rotation_vector": true
+}

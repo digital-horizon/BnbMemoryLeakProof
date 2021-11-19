@@ -1,0 +1,21 @@
+{
+  "name": "GlassFire",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    },
+    "media": {
+      "type": "VIDEO",
+      "file": "FireMain.mp4"
+    }
+  },
+
+
+   "sounds" : [
+                  { "trackName" : "Glass_Fire_v2.m4a" }
+                  ],
+  "recordDuration": 15
+}
+  
+ 

@@ -1,0 +1,18 @@
+{
+  "name": "SunglassesMusic",
+  "frx": {
+    "type" : "3d_anim",
+    "3d_anim" : {
+      "type" : "vfx"
+    },
+    "media": {
+      "type": "VIDEO",
+      "file": "right_FFF.mp4"
+    }
+  },
+  "recordDuration" : 10,
+
+    "sounds" : [{ "trackName" : "Sunglasses_music_v4.m4a" 
+                }]
+
+}

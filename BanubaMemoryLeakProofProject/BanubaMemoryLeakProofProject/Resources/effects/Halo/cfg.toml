@@ -1,0 +1,46 @@
+msaa = 1
+shadowmap_size = 512
+adjust_znear = 150
+draw_order = ['retouch','cut','ring']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="redmask_new_3.png"
+lookupTexTeeth="teeth_low.png"
+lookupTexEyes="eyes_low.png"
+tex_softLight="soft_low.png"
+tex_highlight="eyes.png"
+
+# Cut
+[materials.cut]
+vs = "cut.vert"
+fs = "cut.frag"
+blend = "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = false
+samplers = {}
+
+
+
+[materials.ring]
+vs = "mesh.vert"
+fs = "mesh.frag"
+blend = "alpha" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+shadow = false
+[materials.ring.samplers]
+tex_diffuse="ring.png"

@@ -1,0 +1,29 @@
+warp_mesh = "BeautyFaceSP_Optimased.bsm2"
+adjust_znear = 0
+draw_order = ['retouch', '!glfx_UPDATE_BG',  'TriMa1']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+lookupTexTeeth="lut3d_TEETH_medium.png"
+lookupTexEyes="lut3d_EYES_medium.png"
+tex_softLight="SOFT_princess_256.png"
+tex_highlight="FLARE_40_768.png"
+
+[materials.TriMa1]
+vs = "fstri.vert"
+fs = "lut.frag"
+blend = "alpha"
+backfaces = false
+shadow = false
+zwrite = false
+samplers = {luttex=0}

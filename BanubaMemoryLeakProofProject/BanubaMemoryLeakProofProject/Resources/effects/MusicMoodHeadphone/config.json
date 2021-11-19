@@ -1,0 +1,29 @@
+{
+  "name": "MusicMoodHeadphone",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    },
+    "media": {
+      "type": "VIDEO",
+      "file": "music_Base_Color.mp4"
+    }
+  },
+  "final": {
+    "type": "FILTER",
+    "filter": {
+      "fragmentCode": "finalColorFilter.fsh",
+      "textures": [{
+        "file": "sunny.png",
+        "sampler": "lookupTexture",
+        "magFilter": "LINEAR",
+        "minFilter": "LINEAR"
+      }]
+    }
+  },
+ "sounds" : [
+              { "trackName" : "musicmoodheadphones_music_L_Ch.m4a" }
+              ],
+  "recordDuration": 15
+}
