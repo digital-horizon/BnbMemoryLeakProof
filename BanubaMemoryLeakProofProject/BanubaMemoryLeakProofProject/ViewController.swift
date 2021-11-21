@@ -40,7 +40,6 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
             guard let self = self else { return }
 
-            NSLog("Banuba Testing reloading player \(effect)")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
                 guard let self = self else { return }
                 NSLog("Banuba Testing loading effect \(effect)")
